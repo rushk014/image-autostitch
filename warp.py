@@ -1,3 +1,4 @@
+import os
 import numpy as np
 
 import utils
@@ -64,6 +65,8 @@ def loadWarp(im, im_name, H, onto=True):
     if warped_im is None:
         print(f"warping {im_name}")
         warped_im, minmax = warp_im(im, H, onto=onto)
+        utils.make_dir(utils.warp_dir)
+        utils.make_dir(utils.minmax_dir)
         utils.save_img(warped_im, utils.warp_dir, im_name)
         np.savetxt(utils.minmax_dir + im_name + ".txt", minmax, fmt="%d")
     return warped_im, minmax

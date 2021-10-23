@@ -29,7 +29,9 @@ optional arguments:
                         intermediate autostitching outputs
 ```
 
-Global filepaths for intermediate and final outputs are set in ```utils.py```.
+Global filepaths for intermediate and final outputs are set in ```utils.py```. 
+
+Note: Click same coordinate twice to end manual shape labelling.
 
 ## Examples
 

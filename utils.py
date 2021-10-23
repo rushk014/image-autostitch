@@ -2,6 +2,7 @@ import os
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
+from numpy.core.numeric import full
 from skimage.filters import gaussian
 from skimage.util import img_as_float, img_as_ubyte
 
@@ -63,11 +64,15 @@ def imshow(im, shape=None, save_path=None, cmap=None, s=1):
         plt.savefig(save_path)
     plt.show()
 
+def make_dir(dir):
+    os.makedirs(dir, exist_ok=True)
+
 def get_shape(im, im_name, shape_path=shape_dir, full_path=None, ext="vec"):
     ''' Load shape {im_name}_[RANSAC/vec] from shape_path
     if possible, otherwise open ginput for manual labeling. '''
     shape_fname = f"{full_path}_{ext}" if full_path \
             else f"{shape_path}{im_name}_{ext}"
+    shape_head = os.path.split(shape_fname)[0]
     ext = ".txt"
     if not os.path.isfile(shape_fname + ext):
         plt.imshow(im)
@@ -85,6 +90,8 @@ def get_shape(im, im_name, shape_path=shape_dir, full_path=None, ext="vec"):
             plt.draw()
             pts.append(pt)
             i += 1
+        make_dir(shape_head)
+        plt.clf()
         plt.savefig(f"{shape_fname}.jpg")
         shape_vec = np.array(pts)
         np.savetxt(shape_fname + ext, shape_vec, fmt="%d")
@@ -159,7 +166,12 @@ def upsample_pts(pts, curr_shape, target_shape):
 
 def extract_filename(path):
     ''' Extract filename from path. '''
-    return path.split('/')[-1].split('.')[0]
+    h, t = os.path.split(path)
+    return t.split('.')[0], h
+
+def extract_path(full_path):
+    ''' Extract path from full_path. '''
+    return full_path.split('/')[:-1]
 
 # Multiresolution Blending Helpers
 

@@ -13,8 +13,8 @@ def mosaic_arb(im_paths, ref_im_path, shape_path=utils.shape_dir, diff_corr=Fals
     ref_im = utils.im_to_uin8(utils.read_img(ref_im_path))
     for im_path in im_paths:
         im_arr.append(utils.read_img(im_path))
-    ref_im_name = utils.extract_filename(ref_im_path)
-    im_names = [utils.extract_filename(p) for p in im_paths]
+    ref_im_name = utils.extract_filename(ref_im_path)[0]
+    im_names = [utils.extract_filename(p)[0] for p in im_paths]
     if diff_corr:
         ref_im_pts = []
     else:
@@ -54,7 +54,7 @@ def mosaic_arb(im_paths, ref_im_path, shape_path=utils.shape_dir, diff_corr=Fals
 def rectify(im_path):
     ''' Load and rectify im_name. '''
     im = utils.read_img(im_path, rot=True)
-    im_name = utils.extract_filename(im_path)
+    im_name = utils.extract_filename(im_path)[0]
     im_pts = utils.get_shape(im, im_name)
     rect_pts = utils.corners((200, 150))
     H = warp.computeH(im_pts, rect_pts)
@@ -72,8 +72,9 @@ def autostitch_multi(ref_im_path, im_paths, visualize=False):
     for im_path in im_paths:
         ims_full.append(utils.read_img(im_path))
     im_frac = 0.2
-    ref_im_name = utils.extract_filename(ref_im_path)
-    im_names = [utils.extract_filename(p) for p in im_paths]
+    ref_im_name = utils.extract_filename(ref_im_path)[0]
+    im_names = [utils.extract_filename(p)[0] for p in im_paths]
+    utils.make_dir(utils.autoshape_dir)
     # set resize frac to limit # harris pts to process (should be ~10000)
     ims = [utils.resize(im, im_frac) for im in ims_full]
     ref_im = utils.resize(ref_im_full, im_frac)
@@ -106,7 +107,6 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--verbose', action='store_true', 
                 help='log file reads/writes to stdout & visualize intermediate autostitching outputs')
     args = vars(parser.parse_args())
-    
     verbose = args['verbose']
     ref_path = args['ref'].name
     if args['warp'] is None:
