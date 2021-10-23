@@ -102,8 +102,8 @@ if __name__ == '__main__':
     parser.add_argument('-w', '--warp', type=argparse.FileType('r'),  
                         help='warp image path(s)', nargs='+')
     parser.add_argument('-m', '--mode', choices=['rectify', 'manual_mosaic', 'autostitch'], 
-                        help='choose between image rectification, manual correspondence mosaic \
-                              and autostitched mosaics', required=True)
+                        help='choose between image rectification, manual correspondence mosaicing \
+                              and autostitched mosaicing', required=True)
     parser.add_argument('-v', '--verbose', action='store_true', 
                 help='log file reads/writes to stdout & visualize intermediate autostitching outputs')
     args = vars(parser.parse_args())

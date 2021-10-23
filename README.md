@@ -1,13 +1,13 @@
-# Autostitching Panoramic Images
+<h1 align="center"> Autostitching Panoramic Images </h1>
 
-Python application for stitching panoramic images.
+<p align="center">Python application for stitching panoramic images.</p>
 
 ## Description
 
-Implements stitching arbitrary images either through manually defined correspondences
-or through feature matching based on the Harris corner detector, as described in [Brown et Al.](http://matthewalunbrown.com/papers/cvpr05.pdf) Stitching is accomplished by computing a homography matrix between the set(s) of image
+Implements stitching arbitrary images either through manually defined features
+or through SIFT feature matching based on the Harris corner detector, as described in [Brown et Al.](http://matthewalunbrown.com/papers/cvpr05.pdf) Stitching is accomplished using RANSAC to compute a robust homography between the set(s) of image
 correspondence, then warping each image toward a chosen reference image. Finally, multiresolution blending is accomplished using 
-Laplacian pyramids. The application also supports rectangular image rectification.
+Laplacian pyramids. The application also supports image rectification.
 
 ## Usage
 
@@ -24,10 +24,16 @@ optional arguments:
                         warp image path(s)
   -m {rectify,manual_mosaic,autostitch}, --mode {rectify,manual_mosaic,autostitch}
                         choose between image rectification, manual
-                        correspondence mosaic and autostitched mosaics
+                        correspondence mosaicing and autostitched mosaicing
   -v, --verbose         log file reads/writes to stdout & visualize
                         intermediate autostitching outputs
 ```
+
+### Modes
+
+- rectify: requires only ```-r REF```
+- manual_mosaic: requires ```-r REF``` and at least one ```-w WARP```, supports a single global feature set
+- autostitching: requires ```-r REF``` and at least one ```-w WARP```
 
 Global filepaths for intermediate and final outputs are set in ```utils.py```. 
 
@@ -40,7 +46,7 @@ Note: Click same coordinate twice to end manual shape labelling.
 <table>
   <tr>
      <td>Hallway</td>
-     <td>Hall Rectified</td>
+     <td>Hallway Rectified</td>
   </tr>
   <tr>
     <td><img alt="hallway" src="_examples/hallway.jpg" width="325"/> </td>
