@@ -83,6 +83,6 @@ In general, my autostitching code generates mosaics of equal or better quality t
 
 ### Results
 
-![room-mosaic](/docs/assets/imgs/readme/room-mosaic.jpg "Room Mosaic")
-![building-mosaic](/docs/assets/imgs/readme/building-mosaic.jpg "Building Mosaic")
+![room-mosaic](/assets/imgs/readme/room-mosaic.jpg "Room Mosaic")
+![building-mosaic](/assets/imgs/readme/building-mosaic.jpg "Building Mosaic")
 
