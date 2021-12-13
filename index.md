@@ -18,7 +18,7 @@ I used a DSLR with manual exposure and focus locking, as well as a tripod, to sh
 
 Using the image of a hallway, I manually defined correspondence around a doorway and a mural, both nearly perpendicular to the camera's direction vector, then computed the homography to the unit rectangle `[[0, 0], [w, 0], [0, h], [w, h]]`.
 
-|<img src="{{ site.baseurl }}/assets/imgs/readme/hallway_rectified.jpg" alt="hallway-rectified" width="200"/>|
+|<img src="{{ site.baseurl }}/assets/imgs/readme/hallway_rectified.jpg" alt="hallway-rectified" width="300"/>|
 |:--:|
 | *Hallway Rectified* |
 
@@ -38,7 +38,7 @@ one image and the unit rectangle. Significantly overlapping field of view helps 
 
 After defining correspondence between the images, I designate a reference image and warp the other image to it. After placing the images (warped and non-warped) into a empty image, which required specific predictive computations to determine output size, I initial used naive alpha blending to overlap the images, however this produced strong edge artifacts. I later implemented a multiresolution blending algorithm based on Laplacian pyramids to blend the images.
 
-|<img src="{{ site.baseurl }}/assets/imgs/docs/room-mosaic.jpg" alt="room-mosaic" width="200"/>|
+|<img src="{{ site.baseurl }}/assets/imgs/docs/room-mosaic.jpg" alt="room-mosaic" width="300"/>|
 |:--:|
 | *Room Mosaic* |
 
@@ -46,7 +46,7 @@ After defining correspondence between the images, I designate a reference image 
 
 Extending my implementation to support an arbitrary number of image vectors required some fine tuning to properly calculate output sizes, but the overall implementation follows the same formula. Currently my implementation only supports one set of correspondences, extending to support an arbitrary number of correspondences between arbitrary images would allow full panoramic, as opposed to the current `~180°` field of view. I warp images taken to the left/right of a user-defined reference image towards the reference image using homographies, then iteratively blend consequetive images using multiresolution blending.
 
-|<img src="{{ site.baseurl }}/assets/imgs/docs/green-room-mosaic.jpg" alt="green-room-mosaic" width="200"/>|
+|<img src="{{ site.baseurl }}/assets/imgs/docs/green-room-mosaic.jpg" alt="green-room-mosaic" width="300"/>|
 |:--:|
 | *Green Room Mosaic* |
 
@@ -102,7 +102,6 @@ In general, my autostitching code generates mosaics of equal or better quality t
 
 <style>
 table {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 25%;
 }
 </style>
