@@ -12,11 +12,11 @@ I used a DSLR with manual exposure and focus locking, as well as a tripod, to sh
 
 ### Image Rectification
 
-![hallway](/image-autostitch/docs/assets/imgs/readme/hallway.jpg "Hallway")
+![hallway](/docs/assets/imgs/readme/hallway.jpg "Hallway")
 
 Using the image of a hallway, I manually defined correspondence around a doorway and a mural, both nearly perpendicular to the camera's direction vector, then computed the homography to the unit rectangle `[[0, 0], [w, 0], [0, h], [w, h]]`.
 
-![hallway-rectified](/docs/assets/imgs/readme/hallway-rectified.jpg "Hallway Rectified")
+![hallway-rectified](/docs/assets/imgs/readme/hallway_rectified.jpg "Hallway Rectified")
 
 
 ### Recovering Homographies and Image Warping
