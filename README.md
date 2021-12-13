@@ -49,8 +49,8 @@ Note: Click same coordinate twice to end manual shape labelling.
      <td>Hallway Rectified</td>
   </tr>
   <tr>
-    <td><img alt="hallway" src="docs/assets/imgs/readme/hallway.jpg" width="325"/> </td>
-    <td><img alt="hallway rectified" src="docs/assets/imgs/readme/hallway_rectified.jpg" width="325"/></td>
+    <td><img alt="hallway" src="assets/imgs/readme/hallway.jpg" width="325"/> </td>
+    <td><img alt="hallway rectified" src="assets/imgs/readme/hallway_rectified.jpg" width="325"/></td>
   </tr>
  </table>
 
@@ -65,9 +65,9 @@ Note: Click same coordinate twice to end manual shape labelling.
      <td>Building Mosaic</td>
   </tr>
   <tr>
-    <td><img alt="building-left" src="docs/assets/imgs/readme/building-1.jpg" width="325"/></td>
-    <td><img alt="building-right" src="docs/assets/imgs/readme/building-2.jpg" width="325"/></td>
-    <td><img alt="building mosaic" src="docs/assets/imgs/readme/building-mosaic.jpg" width="375"/></td>
+    <td><img alt="building-left" src="assets/imgs/readme/building-1.jpg" width="325"/></td>
+    <td><img alt="building-right" src="assets/imgs/readme/building-2.jpg" width="325"/></td>
+    <td><img alt="building mosaic" src="assets/imgs/readme/building-mosaic.jpg" width="375"/></td>
   </tr>
   <tr>
      <td>Room Left</td>
@@ -75,9 +75,9 @@ Note: Click same coordinate twice to end manual shape labelling.
      <td>Room Mosaic</td>
   </tr>
   <tr>
-    <td><img alt="room-left" src="docs/assets/imgs/readme/room-1.jpg" width="325"/></td>
-    <td><img alt="room-right" src="docs/assets/imgs/readme/room-2.jpg" width="325"/></td>
-    <td><img alt="room mosaic" src="docs/assets/imgs/readme/room-mosaic.jpg" width="375"/></td>
+    <td><img alt="room-left" src="assets/imgs/readme/room-1.jpg" width="325"/></td>
+    <td><img alt="room-right" src="assets/imgs/readme/room-2.jpg" width="325"/></td>
+    <td><img alt="room mosaic" src="assets/imgs/readme/room-mosaic.jpg" width="375"/></td>
   </tr>
  </table>
 
