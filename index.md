@@ -64,7 +64,7 @@ I used the given starter code `harris.py` to generate harris points for both ima
 
 I implemented ANMS by iterating over points, computing the minimum squared distance for each point to another point where `H_point < 0.9 * H_other`. I then sort in the list in descending order and choose the top `500`, as suggested in the paper. Visualized below are the results of ANMS across a variety of source images:
 
-| <img src="{{ site.baseurl }}/assets/imgs/docs/room-1_anms.jpg" alt="room-1-anms" width="200"/> | <img src="{{ site.baseurl }}/assets/imgs/docs/room-2_anms.jpg" alt="room-2-anms" width="200"/>
+| <img src="{{ site.baseurl }}/assets/imgs/docs/room-1_ANMS.jpg" alt="room-1-anms" width="200"/> | <img src="{{ site.baseurl }}/assets/imgs/docs/room-2_ANMS.jpg" alt="room-2-anms" width="200"/>
 |:--:|:--:|
 | *Room-1 ANMS* | *Room-2 ANMS* |
 
@@ -80,7 +80,7 @@ To produce feature descriptors for each point in the ANMS output, we extract an 
 
 To implement RANSAC, I repeatedly subsample a 4-point correspondence to generate a homography, using it to compare the pixels warped under the homography to the correspondending image and updating when squared error is below some threshold, usually around 1 pixel. Finally I take the best correspondence returned after `~1000` iterations of RANSAC and upsample it to fit source image sizes.
 
-| <img src="{{ site.baseurl }}/assets/imgs/docs/room-1_ransac.jpg" alt="room-1-ransac" width="200"/> | <img src="{{ site.baseurl }}/assets/imgs/docs/room-2_ransac.jpg" alt="room-2-ransac" width="200"/>
+| <img src="{{ site.baseurl }}/assets/imgs/docs/room-1_RANSAC.jpg" alt="room-1-ransac" width="200"/> | <img src="{{ site.baseurl }}/assets/imgs/docs/room-2_RANSAC.jpg" alt="room-2-ransac" width="200"/>
 |:--:|:--:|
 | *Room-1 RANSAC* | *Room-2 RANSAC* |
 
@@ -100,3 +100,9 @@ In general, my autostitching code generates mosaics of equal or better quality t
 |:--:|:--:|
 | *Room Mosaic* | *Building Mosaic* |
 
+<style>
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
